@@ -97,7 +97,7 @@ def calculate_carbon_footprint(disposable_items_car_usage_counts, used_public_tr
         '소고기': 27,
         '돼지고기': 12,
         '닭고기': 7,  
-        '기타': int((20 + 10 + 5) / 3) 
+        '기타': int((27 + 12 + 7) / 3) 
     }
 
     total_meat_contribution = 0
@@ -114,14 +114,9 @@ def calculate_carbon_footprint(disposable_items_car_usage_counts, used_public_tr
     return score, contributions
 
 
-# Main function to run the calculator
 def run_calculator():
     st.title("🌱 탄소 발자국 계산기")
 
-    disposable_items_car_usage_counts = get_disposable_item_car_usage_input()
-    used_public_transport = get_public_transport_input()
-    meat_counts = get_meat_consumption_input()
-    recycled = get_recycling_input()
 
     if st.button("탄소 발자국 계산"):
 
