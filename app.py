@@ -1,27 +1,9 @@
-# Import matplotlib modules AFTER clearing cache
 import streamlit as st
 import matplotlib.pyplot as plt
-import matplotlib.font_manager as fm
-import os # Import os module
-import logging # Import logging module
 import matplotlib as mpl
-
-# Suppress matplotlib font-related warnings
-logging.getLogger('matplotlib.font_manager').disabled = True
-
-# Add the font path directly to font manager
+import matplotlib.font_manager as fm
 
 font_path = "NanumGothic.ttf"
-
-if os.path.exists(font_path):
-    fm.fontManager.addfont(font_path)
-    font_name = fm.FontProperties(fname=font_path).get_name()
-
-    plt.rcParams["font.family"] = font_name
-    mpl.rcParams["font.family"] = font_name
-else:
-    plt.rcParams["font.family"] = "sans-serif"
-    mpl.rcParams["font.family"] = "sans-serif"
 
 plt.rcParams["axes.unicode_minus"] = False
 mpl.rcParams["axes.unicode_minus"] = False
