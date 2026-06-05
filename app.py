@@ -300,11 +300,7 @@ def plot_carbon_footprint(carbon_score, feedback_message):
     arrowprops=dict(arrowstyle="->")
 )
 
-    # 점수 텍스트
-    ax.axvline(
-    carbon_score,
-    color="black",
-)
+ 
 
     ax.set_xlim(0, 120)
     ax.set_yticks([])
