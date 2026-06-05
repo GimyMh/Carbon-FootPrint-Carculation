@@ -85,7 +85,7 @@ def calculate_carbon_footprint(disposable_items_car_usage_counts, used_public_tr
     for item_type, count in disposable_items_car_usage_counts.items():
         if count > 0:
             current_disposable_contribution = disposable_item_score_map.get(item_type, 0) * count
-            total_disposable_contribution += current_disposable_contribution
+            total_disposable_car_contribution += current_disposable_contribution
 
 
     score += total_disposable_car_contribution
