@@ -129,7 +129,7 @@ def get_meat_consumption_input():
 # Function to collect user input for recycling habits
 def get_recycling_input():
     return st.checkbox(
-        "오늘 재활용을 제대로 했나요?"
+        "오늘 분리수거을 제대로 했나요?"
     )
 
 # Modified function to calculate the carbon footprint score with differentiated meat scores and counts
