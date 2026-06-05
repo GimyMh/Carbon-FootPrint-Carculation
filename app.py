@@ -197,18 +197,17 @@ def run_calculator():
         )
 
         if carbon_score <= 20:
-            feedback_message = "훌륭합니다! 오늘 탄소 발자국이 매우 낮습니다. 환경을 위한 노력을 지속해주세요."
+            feedback_message = "훌륭합니다! 오늘 탄소 발자국이 매우 낮습니다. 계속 이어가 주세요!"
         elif carbon_score <= 50:
             feedback_message = "좋은 노력을 하고 계십니다! 조금 더 탄소 발자국을 줄일 수 있는 방법을 찾아보세요."
         elif carbon_score <= 80:
-            feedback_message = "탄소 발자국을 줄이기 위해 몇 가지 변화를 고려해 볼 수 있습니다. 예를 들어 대중교통 이용, 육류 섭취 줄이기 등이 있습니다."
+            feedback_message = "탄소 발자국을 줄이기 노력해야 합니다. 예를 들어 대중교통 이용, 육류 섭취 줄이기 등이 있습니다."
         else:
             feedback_message = "탄소 발자국을 줄이기 위한 적극적인 노력이 필요합니다. 생활 습관을 점검해 보세요."
 
         
 
         plot_carbon_footprint(
-            carbon_score,
             feedback_message
         )
 
