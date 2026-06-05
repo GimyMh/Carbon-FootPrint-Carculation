@@ -9,22 +9,7 @@ plt.rcParams["axes.unicode_minus"] = False
 mpl.rcParams["axes.unicode_minus"] = False
 mpl.rcParams["font.size"] = 11
 
-if os.path.exists(font_path):
-    fm.fontManager.addfont(font_path)
-    # Check if 'NanumGothic' is now in the list of available fonts  
-    if 'NanumGothic' in [f.name for f in fm.fontManager.ttflist]:
-        plt.rcParams['font.family'] = 'sans-serif' # Set generic family
-        # Prioritize NanumGothic in the sans-serif list
-        plt.rcParams['font.sans-serif'] = ['NanumGothic'] + [f for f in plt.rcParams['font.sans-serif'] if f != 'NanumGothic' and f != 'DejaVu Sans']
-        # Add DejaVu Sans as a fallback if not already in the list
-        if 'DejaVu Sans' not in plt.rcParams['font.sans-serif']:
-            plt.rcParams['font.sans-serif'].append('DejaVu Sans')
-    else:
-        # Fallback if NanumGothic is not in ttflist after adding
-        plt.rcParams['font.family'] = 'DejaVu Sans'
-else:
-    # Fallback if font file does not exist
-    plt.rcParams['font.family'] = 'DejaVu Sans'
+
 
 plt.rcParams['axes.unicode_minus'] = False # This is important to prevent breaking the minus sign
 
