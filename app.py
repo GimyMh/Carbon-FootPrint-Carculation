@@ -292,10 +292,13 @@ def plot_carbon_footprint(carbon_score, feedback_message):
     )
 
     # 현재 점수 표시
-    ax.axvline(
-        carbon_score,
-        color="black",
-        linewidth=3
+    ax.annotate(
+    f"{carbon_score}점",
+    xy=(carbon_score, 0),
+    xytext=(carbon_score, 0.5),
+    ha="center",
+    arrowprops=dict(arrowstyle="->")
+)
     )
 
     # 점수 텍스트
