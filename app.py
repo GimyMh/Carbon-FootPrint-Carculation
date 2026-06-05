@@ -5,15 +5,8 @@ import matplotlib.font_manager as fm
 
 font_path = "NanumGothic.ttf"
 
-plt.rcParams["axes.unicode_minus"] = False
-mpl.rcParams["axes.unicode_minus"] = False
-mpl.rcParams["font.size"] = 11
 
 
-
-plt.rcParams['axes.unicode_minus'] = False # This is important to prevent breaking the minus sign
-
-# Function to collect user input for disposable item usage
 def get_disposable_item_input():
 
     return {
