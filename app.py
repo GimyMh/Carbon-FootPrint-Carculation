@@ -105,22 +105,22 @@ def get_meat_consumption_input():
     if ate_meat_today:
 
         meat_counts['소고기'] = st.number_input(
-            "소고기 섭취 횟수",
+            "소고기 섭취 횟수 (100g당 1회)",
             0, 20, 0
         )
 
         meat_counts['돼지고기'] = st.number_input(
-            "돼지고기 섭취 횟수",
+            "돼지고기 섭취 횟수 (100g당 1회)",
             0, 20, 0
         )
 
         meat_counts['닭고기'] = st.number_input(
-            "닭고기 섭취 횟수",
+            "닭고기 섭취 횟수 (100g당 1회)",
             0, 20, 0
         )
 
         meat_counts['기타'] = st.number_input(
-            "기타 육류 섭취 횟수",
+            "기타 육류 섭취 횟수 (100g당 1회)",
             0, 20, 0
         )
 
@@ -184,9 +184,9 @@ def calculate_carbon_footprint(disposable_items_counts, car_usage_count, used_pu
 
     # 육류 종류에 따라 점수 차등 부여 및 횟수 반영
     meat_score_map = {
-        '소고기': 20, # 소고기는 탄소 발자국이 가장 높음
-        '돼지고기': 10,
-        '닭고기': 5,  # 닭고기는 탄소 발자국이 상대적으로 낮음
+        '소고기': 27, # 소고기는 탄소 발자국이 가장 높음
+        '돼지고기': 12,
+        '닭고기': 7,  # 닭고기는 탄소 발자국이 상대적으로 낮음
         '기타': int((20 + 10 + 5) / 3) # 평균 점수 부여
     }
 
