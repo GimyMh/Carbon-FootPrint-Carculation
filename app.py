@@ -16,22 +16,17 @@ def get_disposable_item_input():
         '기타 일회용품': st.number_input('기타 일회용품 사용 횟수', 0, 100, 0)
     }
 
-# Function to collect user input for private car usage
 def get_car_usage_input():
-    return st.number_input(
-        "오늘 자가용을 몇 번 이용했나요?",
-        min_value=0,
-        value=0,
-        step=1
-    )
 
-# Function to collect user input for public transportation usage
+    return {
+        '자가용': st.number_input('오늘 자가용 이용 횟수', 0, 100, 0)
+    }
+
 def get_public_transport_input():
     return st.checkbox(
         "오늘 대중교통을 이용했나요?"
     )
 
-# Modified function to collect user input for meat consumption type and count
 def get_meat_consumption_input():
 
     ate_meat_today = st.checkbox(
@@ -87,7 +82,8 @@ def calculate_carbon_footprint(disposable_items_counts, car_usage_count, used_pu
         '나무젓가락': 5, # Wooden Chopsticks
         '빨대': 5,       # Straw
         '일회용 용기': 15, # Disposable Container
-        '기타 일회용품': 10 # Average of others
+        '기타 일회용품': 10, # Average of others
+        '자가용': 10
     }
 
     total_disposable_contribution = 0
@@ -114,11 +110,6 @@ def calculate_carbon_footprint(disposable_items_counts, car_usage_count, used_pu
             contributions[english_item_name] = current_disposable_contribution
 
     score += total_disposable_contribution
-
-    # 자가용 이용 횟수당 10점 추가
-    car_usage_contribution = car_usage_count * 10
-    score += car_usage_contribution
-    contributions['Private Car Usage'] = car_usage_contribution
 
     # 대중교통 이용 시 10점 감소 (긍정적 요소)
     public_transport_contribution = -10 if used_public_transport else 0
