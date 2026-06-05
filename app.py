@@ -22,13 +22,18 @@ def get_public_transport_input():
         "오늘 대중교통을 이용했나요?"
     )
 
+def get_recycling_input():
+    return st.checkbox(
+        "오늘 분리수거을 제대로 했나요?"
+    )
+
 def get_meat_consumption_input():
 
     ate_meat_today = st.checkbox(
         "오늘 육류를 섭취했나요?"
     )
 
-    meat_counts = {
+    meat_counts = {    
         '소고기': 0,
         '돼지고기': 0,
         '닭고기': 0,
@@ -39,37 +44,32 @@ def get_meat_consumption_input():
 
         meat_counts['소고기'] = st.number_input(
             "소고기 섭취 횟수 (100g당 1회)",
-            0, 20, 0
+            0, 50, 0
         )
 
         meat_counts['돼지고기'] = st.number_input(
             "돼지고기 섭취 횟수 (100g당 1회)",
-            0, 20, 0
+            0, 50, 0
         )
 
         meat_counts['닭고기'] = st.number_input(
             "닭고기 섭취 횟수 (100g당 1회)",
-            0, 20, 0
+            0, 50, 0
         )
 
         meat_counts['기타'] = st.number_input(
             "기타 육류 섭취 횟수 (100g당 1회)",
-            0, 20, 0
+            0, 50, 0
         )
 
     return meat_counts
 
-# Function to collect user input for recycling habits
-def get_recycling_input():
-    return st.checkbox(
-        "오늘 분리수거을 제대로 했나요?"
-    )
+
 
 def calculate_carbon_footprint(disposable_items_car_usage_counts, used_public_transport, meat_counts, recycled):
     score = 0
     contributions = {}
 
-    # Scoring logic for disposable items
     disposable_item_score_map = {
         '플라스틱 컵': 15, 
         '비닐봉투': 10,  
@@ -90,10 +90,8 @@ def calculate_carbon_footprint(disposable_items_car_usage_counts, used_public_tr
 
     score += total_disposable_car_contribution
 
-    # 대중교통 이용 시 10점 감소 (긍정적 요소)
     public_transport_contribution = -10 if used_public_transport else 0
     score += public_transport_contribution
-    contributions['Public Transport Usage'] = public_transport_contribution
 
     # 육류 종류에 따라 점수 차등 부여 및 횟수 반영
     meat_score_map = {
