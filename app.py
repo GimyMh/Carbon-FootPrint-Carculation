@@ -214,23 +214,6 @@ def calculate_carbon_footprint(disposable_items_counts, car_usage_count, used_pu
 
     return score, contributions
 
-# Function to plot the carbon footprint score
-def plot_carbon_footprint(carbon_score, feedback_message):
-    fig, ax = plt.subplots(figsize=(8, 4))
-    bars = ax.bar(['Carbon Footprint Score'], [carbon_score], color='skyblue') # Changed label to English
-    ax.set_ylabel('Score') # Changed label to English
-    ax.set_title('Today\'s Carbon Footprint Score') # Changed title to English
-    ax.set_ylim(0, max(100, carbon_score + 20)) # Adjust y-limit dynamically
-
-    # Add score value on top of the bar
-    for bar in bars:
-        yval = bar.get_height()
-        ax.text(bar.get_x() + bar.get_width()/2, yval + 1, round(yval), ha='center', va='bottom', fontsize=12)
-
-    # Add feedback message as text on the plot
-    plt.figtext(0.5, -0.05, feedback_message, ha="center", fontsize=10, bbox={"facecolor":"orange", "alpha":0.5, "pad":5})
-    plt.tight_layout()
-    st.pyplot(fig)
 
 # Main function to run the calculator
 def run_calculator():
@@ -274,31 +257,65 @@ def run_calculator():
         )
 
 def plot_carbon_footprint(carbon_score, feedback_message):
-    fig, ax = plt.subplots(figsize=(8, 4))
 
-    bars = ax.bar(
-        ['Carbon Footprint Score'],
-        [carbon_score],
-        color='skyblue'
+    fig, ax = plt.subplots(figsize=(10, 2))
+
+    # 구간 색상
+    ax.barh(
+        y=0,
+        width=20,
+        left=0,
+        color="green"
     )
 
-    ax.set_ylabel('Score')
-    ax.set_title("Today's Carbon Footprint Score")
-    ax.set_ylim(0, max(100, carbon_score + 20))
+    ax.barh(
+        y=0,
+        width=30,
+        left=20,
+        color="yellow"
+    )
 
-    for bar in bars:
-        yval = bar.get_height()
-        ax.text(
-            bar.get_x() + bar.get_width()/2,
-            yval + 1,
-            round(yval),
-            ha='center',
-            va='bottom',
-            fontsize=12
-        )
+    ax.barh(
+        y=0,
+        width=30,
+        left=50,
+        color="orange"
+    )
+
+    ax.barh(
+        y=0,
+        width=40,
+        left=80,
+        color="red"
+    )
+
+    # 현재 점수 표시
+    ax.axvline(
+        carbon_score,
+        color="black",
+        linewidth=3
+    )
+
+    # 점수 텍스트
+    ax.text(
+        carbon_score,
+        0.2,
+        f"{carbon_score}점",
+        ha="center",
+        fontsize=12,
+        fontweight="bold"
+    )
+
+    ax.set_xlim(0, 120)
+    ax.set_yticks([])
+
+    ax.set_xlabel("탄소 발자국 점수")
+    ax.set_title("오늘 나의 탄소 발자국 위치")
 
     plt.tight_layout()
+
     st.pyplot(fig)
+
     st.info(feedback_message)
 
 
