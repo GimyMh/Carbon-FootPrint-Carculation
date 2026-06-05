@@ -132,7 +132,7 @@ def calculate_carbon_footprint(disposable_items_counts, car_usage_count, used_pu
 def run_calculator():
     st.title("🌱 탄소 발자국 계산기")
 
-    disposable_items_car_usage_counts = get_disposable_item_input()
+    disposable_items_car_usage_counts = get_disposable_item_car_usage_input()
     used_public_transport = get_public_transport_input()
     meat_counts = get_meat_consumption_input()
     recycled = get_recycling_input()
