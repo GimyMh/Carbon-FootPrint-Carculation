@@ -249,4 +249,4 @@ def plot_carbon_footprint(carbon_score, feedback_message):
 
 
 if __name__ == "__main__":
-    run_calculator()
+run_calculator()
