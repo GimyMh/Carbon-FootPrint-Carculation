@@ -93,26 +93,23 @@ def calculate_carbon_footprint(disposable_items_car_usage_counts, used_public_tr
     public_transport_contribution = -10 if used_public_transport else 0
     score += public_transport_contribution
 
-    # 육류 종류에 따라 점수 차등 부여 및 횟수 반영
     meat_score_map = {
-        '소고기': 27, # 소고기는 탄소 발자국이 가장 높음
+        '소고기': 27,
         '돼지고기': 12,
-        '닭고기': 7,  # 닭고기는 탄소 발자국이 상대적으로 낮음
-        '기타': int((20 + 10 + 5) / 3) # 평균 점수 부여
+        '닭고기': 7,  
+        '기타': int((20 + 10 + 5) / 3) 
     }
 
     total_meat_contribution = 0
     for meat_type, count in meat_counts.items():
-        if count > 0: # Only add if consumed
+        if count > 0: 
             current_meat_contribution = meat_score_map.get(meat_type, 0) * count
             total_meat_contribution += current_meat_contribution
 
     score += total_meat_contribution
 
-    # 재활용 시 5점 감소 (긍정적 요소)
     recycling_contribution = -5 if recycled else 0
     score += recycling_contribution
-    contributions['Recycling'] = recycling_contribution
 
     return score, contributions
 
