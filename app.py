@@ -87,7 +87,7 @@ def calculate_carbon_footprint(disposable_items_car_usage_counts, used_public_tr
             total_disposable_contribution += current_disposable_contribution
 
 
-    score += total_disposable_car_contribution
+    score += total_disposable_car_usage_contribution
 
     # 대중교통 이용 시 10점 감소 (긍정적 요소)
     public_transport_contribution = -10 if used_public_transport else 0
