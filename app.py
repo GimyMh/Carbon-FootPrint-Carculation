@@ -5,7 +5,7 @@ import matplotlib.font_manager as fm
 import os # Import os module
 import logging # Import logging module
 import matplotlib as mpl
-
+st.write("현재 폰트:", plt.rcParams["font.family"])
 
 # Suppress matplotlib font-related warnings
 logging.getLogger('matplotlib.font_manager').disabled = True
