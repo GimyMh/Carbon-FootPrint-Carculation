@@ -214,6 +214,7 @@ def plot_carbon_footprint(carbon_score, feedback_message):
 
     st.pyplot(fig)
 
+    st.info(feedback_message)
 
 
 if __name__ == "__main__":
