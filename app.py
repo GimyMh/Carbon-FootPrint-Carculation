@@ -168,7 +168,6 @@ def plot_carbon_footprint(carbon_score, feedback_message):
     ax.text(65, -0.3, "주의", ha="center")
     ax.text(100, -0.3, "높음", ha="center")
 
-    plt.tight_layout()
 
     st.pyplot(fig)
 
