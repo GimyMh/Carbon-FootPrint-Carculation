@@ -81,30 +81,14 @@ def calculate_carbon_footprint(disposable_items_counts, car_usage_count, used_pu
         '자가용': 10
     }
 
-    total_disposable_contribution = 0
-    for item_type, count in disposable_items_counts.items():
+    total_disposable_car_contribution = 0
+    for item_type, count in disposable_items_car_usage_counts.items():
         if count > 0:
             current_disposable_contribution = disposable_item_score_map.get(item_type, 0) * count
             total_disposable_contribution += current_disposable_contribution
 
-            # Map Korean item types to English for contributions dictionary
-            english_item_name = item_type
-            if item_type == '플라스틱 컵':
-                english_item_name = 'Disposable Cup (Plastic)'
-            elif item_type == '비닐봉투':
-                english_item_name = 'Plastic Bag'
-            elif item_type == '나무젓가락':
-                english_item_name = 'Wooden Chopsticks'
-            elif item_type == '빨대':
-                english_item_name = 'Straw'
-            elif item_type == '일회용 용기':
-                english_item_name = 'Disposable Container'
-            elif item_type == '기타 일회용품':
-                english_item_name = 'Other Disposable Items'
 
-            contributions[english_item_name] = current_disposable_contribution
-
-    score += total_disposable_contribution
+    score += total_disposable_car_contribution
 
     # 대중교통 이용 시 10점 감소 (긍정적 요소)
     public_transport_contribution = -10 if used_public_transport else 0
@@ -249,4 +233,4 @@ def plot_carbon_footprint(carbon_score, feedback_message):
 
 
 if __name__ == "__main__":
-run_calculator()
+    run_calculator()
