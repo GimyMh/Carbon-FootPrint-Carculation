@@ -6,13 +6,14 @@ import os # Import os module
 import logging # Import logging module
 import matplotlib as mpl
 st.write("현재 폰트:", plt.rcParams["font.family"])
+st.write("폰트 파일 존재:", os.path.exists(font_path))
 
 # Suppress matplotlib font-related warnings
 logging.getLogger('matplotlib.font_manager').disabled = True
 
 # Add the font path directly to font manager
 
-font_path = "/usr/share/fonts/truetype/nanum/NanumGothic.ttf"
+font_path = "NanumGothic.ttf"
 
 if os.path.exists(font_path):
     fm.fontManager.addfont(font_path)
