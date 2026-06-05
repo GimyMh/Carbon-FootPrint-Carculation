@@ -295,7 +295,7 @@ def plot_carbon_footprint(carbon_score, feedback_message):
     ax.annotate(
     f"{carbon_score}점",
     xy=(carbon_score, 0),
-    xytext=(carbon_score, 0.4),
+    xytext=(carbon_score, 0.3),
     ha="center",
     arrowprops=dict(arrowstyle="->")
 )
