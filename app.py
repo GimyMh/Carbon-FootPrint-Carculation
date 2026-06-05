@@ -208,6 +208,7 @@ def run_calculator():
         
 
         plot_carbon_footprint(
+            carbon_score,
             feedback_message
         )
 
