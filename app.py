@@ -299,7 +299,6 @@ def plot_carbon_footprint(carbon_score, feedback_message):
     ha="center",
     arrowprops=dict(arrowstyle="->")
 )
-    )
 
     # 점수 텍스트
     ax.axvline(
