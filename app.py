@@ -13,7 +13,7 @@ def get_disposable_item_car_usage_input():
         '나무젓가락': st.number_input('나무젓가락 사용 횟수', 0, 100, 0),
         '빨대': st.number_input('빨대 사용 횟수', 0, 100, 0),
         '일회용 용기': st.number_input('일회용 용기 사용 횟수', 0, 100, 0),
-        '기타 일회용품': st.number_input('기타 일회용품 사용 횟수', 0, 100, 0)
+        '기타 일회용품': st.number_input('기타 일회용품 사용 횟수', 0, 100, 0),
         '자가용': st.number_input('오늘 자가용 이용 횟수', 0, 100, 0)
     }
 
