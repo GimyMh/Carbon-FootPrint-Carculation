@@ -304,7 +304,6 @@ def plot_carbon_footprint(carbon_score, feedback_message):
     ax.axvline(
     carbon_score,
     color="black",
-    linewidth=3
 )
 
     ax.set_xlim(0, 120)
