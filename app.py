@@ -288,11 +288,15 @@ def plot_carbon_footprint(carbon_score, feedback_message):
         color="red"
     )
 
-    # 현재 점수 표시
+
+    # 점수 화살표 범위 제한
+    display_score = max(0, min(carbon_score, 120))
+    
+    # 현재 점수 화살표 표시    
     ax.annotate(
     f"{carbon_score}점",
-    xy=(carbon_score, 0),
-    xytext=(carbon_score, 0.3),
+    xy=(display_score, 0),
+    xytext=(display_score, 0.3),
     ha="center",
     arrowprops=dict(arrowstyle="->")
 )
