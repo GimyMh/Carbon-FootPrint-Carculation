@@ -113,6 +113,66 @@ def calculate_carbon_footprint(disposable_items_car_usage_counts, used_public_tr
 
     return score, contributions
 
+def plot_carbon_footprint(carbon_score, feedback_message):
+
+    fig, ax = plt.subplots(figsize=(10, 2))
+
+    ax.barh(
+        y=0,
+        width=20,
+        left=0,
+        color="green"
+    )
+
+    ax.barh(
+        y=0,
+        width=30,
+        left=20,
+        color="yellow"
+    )
+
+    ax.barh(
+        y=0,
+        width=30,
+        left=50,
+        color="orange"
+    )
+
+    ax.barh(
+        y=0,
+        width=40,
+        left=80,
+        color="red"
+    )
+
+
+    display_score = max(0, min(carbon_score, 120))
+      
+    ax.annotate(
+    f"{carbon_score}점",
+    xy=(display_score, 0),
+    xytext=(display_score, 0.3),
+    ha="center",
+    arrowprops=dict(arrowstyle="->")
+)
+
+
+    ax.set_xlim(0, 120)
+    ax.set_yticks([])
+
+    ax.set_xlabel("오늘의 탄소 발자국 점수")
+    ax.set_title("오늘 나의 탄소 발자국 위치")
+
+    ax.text(10, -0.3, "매우 낮음", ha="center")
+    ax.text(35, -0.3, "좋음", ha="center")
+    ax.text(65, -0.3, "주의", ha="center")
+    ax.text(100, -0.3, "높음", ha="center")
+
+    plt.tight_layout()
+
+    st.pyplot(fig)
+
+    st.info(feedback_message)
 
 def run_calculator():
     st.title("🌱 탄소 발자국 계산기")
@@ -152,69 +212,7 @@ def run_calculator():
             feedback_message
         )
 
-def plot_carbon_footprint(carbon_score, feedback_message):
 
-    fig, ax = plt.subplots(figsize=(10, 2))
-
-    # 구간 색상
-    ax.barh(
-        y=0,
-        width=20,
-        left=0,
-        color="green"
-    )
-
-    ax.barh(
-        y=0,
-        width=30,
-        left=20,
-        color="yellow"
-    )
-
-    ax.barh(
-        y=0,
-        width=30,
-        left=50,
-        color="orange"
-    )
-
-    ax.barh(
-        y=0,
-        width=40,
-        left=80,
-        color="red"
-    )
-
-
-    # 점수 화살표 범위 제한
-    display_score = max(0, min(carbon_score, 120))
-    
-    # 현재 점수 화살표 표시    
-    ax.annotate(
-    f"{carbon_score}점",
-    xy=(display_score, 0),
-    xytext=(display_score, 0.3),
-    ha="center",
-    arrowprops=dict(arrowstyle="->")
-)
-
-
-    ax.set_xlim(0, 120)
-    ax.set_yticks([])
-
-    ax.set_xlabel("오늘의 탄소 발자국 점수")
-    ax.set_title("오늘 나의 탄소 발자국 위치")
-
-    ax.text(10, -0.3, "매우 낮음", ha="center")
-    ax.text(35, -0.3, "좋음", ha="center")
-    ax.text(65, -0.3, "주의", ha="center")
-    ax.text(100, -0.3, "높음", ha="center")
-
-    plt.tight_layout()
-
-    st.pyplot(fig)
-
-    st.info(feedback_message)
 
 
 if __name__ == "__main__":
