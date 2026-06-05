@@ -311,13 +311,13 @@ def plot_carbon_footprint(carbon_score, feedback_message):
     ax.set_xlim(0, 120)
     ax.set_yticks([])
 
-    ax.set_xlabel("Carbon Footprint Score")
-    ax.set_title("Today's Carbon Footprint Position")
+    ax.set_xlabel("오늘의 탄소 발자국 점수")
+    ax.set_title("오늘 나의 탄소 발자국 위치")
 
-    ax.text(10, -0.3, "Very Low", ha="center")
-    ax.text(35, -0.3, "Good", ha="center")
-    ax.text(65, -0.3, "Caution", ha="center")
-    ax.text(100, -0.3, "High", ha="center")
+    ax.text(10, -0.3, "매우 낮음", ha="center")
+    ax.text(35, -0.3, "좋음", ha="center")
+    ax.text(65, -0.3, "주의", ha="center")
+    ax.text(100, -0.3, "높음", ha="center")
 
     plt.tight_layout()
 
