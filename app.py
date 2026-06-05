@@ -106,15 +106,6 @@ def calculate_carbon_footprint(disposable_items_car_usage_counts, used_public_tr
         if count > 0: # Only add if consumed
             current_meat_contribution = meat_score_map.get(meat_type, 0) * count
             total_meat_contribution += current_meat_contribution
-            # Update contributions with English labels
-            if meat_type == '소고기':
-                contributions[f'Meat Consumption (Beef)'] = current_meat_contribution
-            elif meat_type == '돼지고기':
-                contributions[f'Meat Consumption (Pork)'] = current_meat_contribution
-            elif meat_type == '닭고기':
-                contributions[f'Meat Consumption (Chicken)'] = current_meat_contribution
-            elif meat_type == '기타':
-                contributions[f'Meat Consumption (Other)'] = current_meat_contribution
 
     score += total_meat_contribution
 
