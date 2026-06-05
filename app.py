@@ -192,7 +192,7 @@ def run_calculator():
         )
 
         st.metric(
-            "오늘의 탄소 발자국 점수",
+            "오늘의qwe 발자국 점수",
             carbon_score
         )
 
