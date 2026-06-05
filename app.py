@@ -302,14 +302,11 @@ def plot_carbon_footprint(carbon_score, feedback_message):
     )
 
     # 점수 텍스트
-    ax.text(
-        carbon_score,
-        0.2,
-        f"{carbon_score}점",
-        ha="center",
-        fontsize=12,
-        fontweight="bold"
-    )
+    ax.axvline(
+    carbon_score,
+    color="black",
+    linewidth=3
+)
 
     ax.set_xlim(0, 120)
     ax.set_yticks([])
