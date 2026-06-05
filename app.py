@@ -5,8 +5,6 @@ import matplotlib.font_manager as fm
 import os # Import os module
 import logging # Import logging module
 import matplotlib as mpl
-st.write("현재 폰트:", plt.rcParams["font.family"])
-
 
 # Suppress matplotlib font-related warnings
 logging.getLogger('matplotlib.font_manager').disabled = True
@@ -15,7 +13,6 @@ logging.getLogger('matplotlib.font_manager').disabled = True
 
 font_path = "NanumGothic.ttf"
 
-st.write("폰트 파일 존재:", os.path.exists(font_path))
 if os.path.exists(font_path):
     fm.fontManager.addfont(font_path)
     font_name = fm.FontProperties(fname=font_path).get_name()
