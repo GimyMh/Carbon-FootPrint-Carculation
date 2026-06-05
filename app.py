@@ -118,7 +118,7 @@ def plot_carbon_footprint(carbon_score, feedback_message):
     fig, ax = plt.subplots(figsize=(10, 2))
 
     ax.barh(
-        y=100,
+        y=0,
         width=20,
         left=0,
         color="green"
