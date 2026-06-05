@@ -65,8 +65,7 @@ def get_recycling_input():
         "오늘 분리수거을 제대로 했나요?"
     )
 
-# Modified function to calculate the carbon footprint score with differentiated meat scores and counts
-def calculate_carbon_footprint(disposable_items_counts, car_usage_count, used_public_transport, meat_counts, recycled):
+def calculate_carbon_footprint(disposable_items_car_usage_counts, used_public_transport, meat_counts, recycled):
     score = 0
     contributions = {}
 
