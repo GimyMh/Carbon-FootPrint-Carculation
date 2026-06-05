@@ -5,7 +5,7 @@ import matplotlib.font_manager as fm
 
 font_path = "NanumGothic.ttf"
 
-def get_disposable_item_input():
+def get_disposable_item_car_usage_input():
 
     return {    
         '플라스틱 컵': st.number_input('플라스틱 컵 사용 횟수', 0, 100, 0),
@@ -14,11 +14,6 @@ def get_disposable_item_input():
         '빨대': st.number_input('빨대 사용 횟수', 0, 100, 0),
         '일회용 용기': st.number_input('일회용 용기 사용 횟수', 0, 100, 0),
         '기타 일회용품': st.number_input('기타 일회용품 사용 횟수', 0, 100, 0)
-    }
-
-def get_car_usage_input():
-
-    return {
         '자가용': st.number_input('오늘 자가용 이용 횟수', 0, 100, 0)
     }
 
@@ -77,12 +72,12 @@ def calculate_carbon_footprint(disposable_items_counts, car_usage_count, used_pu
 
     # Scoring logic for disposable items
     disposable_item_score_map = {
-        '플라스틱 컵': 15, # Plastic Cup
-        '비닐봉투': 10,   # Plastic Bag
-        '나무젓가락': 5, # Wooden Chopsticks
-        '빨대': 5,       # Straw
-        '일회용 용기': 15, # Disposable Container
-        '기타 일회용품': 10, # Average of others
+        '플라스틱 컵': 15, 
+        '비닐봉투': 10,  
+        '나무젓가락': 5, 
+        '빨대': 5,      
+        '일회용 용기': 15, 
+        '기타 일회용품': 10, 
         '자가용': 10
     }
 
@@ -153,8 +148,7 @@ def calculate_carbon_footprint(disposable_items_counts, car_usage_count, used_pu
 def run_calculator():
     st.title("🌱 탄소 발자국 계산기")
 
-    disposable_items_counts = get_disposable_item_input()
-    car_usage_count = get_car_usage_input()
+    disposable_items_car_usage_counts = get_disposable_item_input()
     used_public_transport = get_public_transport_input()
     meat_counts = get_meat_consumption_input()
     recycled = get_recycling_input()
@@ -162,8 +156,7 @@ def run_calculator():
     if st.button("탄소 발자국 계산"):
 
         carbon_score, contributions = calculate_carbon_footprint(
-            disposable_items_counts,
-            car_usage_count,
+            disposable_items_car_usage_counts,
             used_public_transport,
             meat_counts,
             recycled
