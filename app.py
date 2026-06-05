@@ -120,14 +120,14 @@ def plot_carbon_footprint(carbon_score, feedback_message):
     ax.barh(
         y=0,
         width=20,
-        left=0,
+        left=20,
         color="green"
     )
 
     ax.barh(
         y=0,
         width=30,
-        left=20,
+        left=0,
         color="yellow"
     )
 
