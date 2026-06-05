@@ -5,11 +5,9 @@ import matplotlib.font_manager as fm
 
 font_path = "NanumGothic.ttf"
 
-
-
 def get_disposable_item_input():
 
-    return {
+    return {    
         '플라스틱 컵': st.number_input('플라스틱 컵 사용 횟수', 0, 100, 0),
         '비닐봉투': st.number_input('비닐봉투 사용 횟수', 0, 100, 0),
         '나무젓가락': st.number_input('나무젓가락 사용 횟수', 0, 100, 0),
@@ -17,20 +15,6 @@ def get_disposable_item_input():
         '일회용 용기': st.number_input('일회용 용기 사용 횟수', 0, 100, 0),
         '기타 일회용품': st.number_input('기타 일회용품 사용 횟수', 0, 100, 0)
     }
-
-    print("오늘 사용한 일회용품 횟수를 입력해주세요 (없으면 0을 입력):")
-    for item_type in disposable_items_counts.keys():
-        while True:
-            try:
-                count = int(input(f"{item_type} 사용 횟수: "))
-                if count < 0:
-                    print("음수가 아닌 숫자를 입력해주세요.")
-                else:
-                    disposable_items_counts[item_type] = count
-                    break
-            except ValueError:
-                print("잘못된 입력입니다. 숫자를 입력해주세요.")
-    return disposable_items_counts
 
 # Function to collect user input for private car usage
 def get_car_usage_input():
