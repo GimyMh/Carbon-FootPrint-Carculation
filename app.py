@@ -1,31 +1,9 @@
 import streamlit as st
-
+import matplotlib.pyplot as plt
 import matplotlib as mpl
 import matplotlib.font_manager as fm
 
 font_path = "NanumGothic.ttf"
-
-fontprop = fm.FontProperties(fname=font_path)
-mpl.rcParams["font.family"] = fontprop.get_name()
-mpl.rcParams["axes.unicode_minus"] = False
-
-
-
-
-import os
-import matplotlib.font_manager as fm
-
-st.write("현재 위치:", os.getcwd())
-st.write("폰트 존재:", os.path.exists("NanumGothic.ttf"))
-
-if os.path.exists("NanumGothic.ttf"):
-    font_prop = fm.FontProperties(fname="NanumGothic.ttf")
-    st.write("폰트 이름:", font_prop.get_name())
-
-import matplotlib.pyplot as plt
-
-
-
 
 def get_disposable_item_car_usage_input():
 
