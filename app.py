@@ -5,6 +5,10 @@ import matplotlib.font_manager as fm
 
 font_path = "NanumGothic.ttf"
 
+fontprop = fm.FontProperties(fname=font_path)
+mpl.rcParams["font.family"] = fontprop.get_name()
+mpl.rcParams["axes.unicode_minus"] = False
+
 def get_disposable_item_car_usage_input():
 
     return {    
