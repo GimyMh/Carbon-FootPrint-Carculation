@@ -153,6 +153,7 @@ def plot_carbon_footprint(carbon_score, feedback_message):
     xy=(display_score, 0),
     xytext=(display_score, 0.3),
     ha="center",
+    arrowprops=dict(arrowstyle="->")
 )
 
 
