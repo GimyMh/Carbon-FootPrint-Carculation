@@ -1,5 +1,5 @@
 import streamlit as st
-import matplotlib.pyplot as plt
+
 import matplotlib as mpl
 import matplotlib.font_manager as fm
 
@@ -22,7 +22,7 @@ if os.path.exists("NanumGothic.ttf"):
     font_prop = fm.FontProperties(fname="NanumGothic.ttf")
     st.write("폰트 이름:", font_prop.get_name())
 
-
+import matplotlib.pyplot as plt
 
 
 
