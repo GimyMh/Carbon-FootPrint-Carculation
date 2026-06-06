@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import matplotlib as mpl
 import matplotlib.font_manager as fm
 
------
+#-----
 
 import matplotlib as mpl
 import matplotlib.font_manager as fm
@@ -23,7 +23,7 @@ mpl.rcParams["axes.unicode_minus"] = False
 st.write("찾은 폰트:", font_name)
 st.write("현재 적용 폰트:", mpl.rcParams["font.family"])
 
------
+#-----
 
 
 font_path = "NanumGothic.ttf"
