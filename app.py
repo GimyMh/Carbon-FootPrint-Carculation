@@ -5,6 +5,8 @@ import matplotlib.font_manager as fm
 
 font_path = "NanumGothic.ttf"
 
+st.write(mpl.rcParams["font.family"])
+
 def get_disposable_item_car_usage_input():
 
     return {    
